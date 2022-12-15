@@ -21,7 +21,7 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeText.text = "c‚èŠÔ:" + limit + "•b";
+        timeText.text = limit + "•b";
 
         restart = new RestartManager(player, text);
     }
@@ -53,7 +53,7 @@ public class TimeManager : MonoBehaviour
         }
 
             limit -= Time.deltaTime;
-        timeText.text = "c‚èŠÔ:" + limit.ToString("f1") + "•b";
+        timeText.text =  limit.ToString("f1") + "•b";
 
 
 

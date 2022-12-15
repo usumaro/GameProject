@@ -16,9 +16,21 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            SceneManager.LoadScene("Game");
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            Invoke("Call", 1.5f);
             audioSource.PlayOneShot(sound1);
         }
+
+       
     }
+
+    void Call()
+    {
+        SceneManager.LoadScene("Game");
+
+
+    }
+
 }

@@ -7,19 +7,22 @@ using UnityEngine.Networking;
 public class DBAccess1 : MonoBehaviour
 {
     
-    public GameObject inputField;
+    public InputField inputField;
     public GameObject PlaceHolder;
     public GameObject Time;
 
     public void Button_Push()
     {
 
-        inputField = GameObject.Find("InputName");
+       
         PlaceHolder = GameObject.Find("Placeholder");
         
         Time = GameObject.Find("Time");
 
-        if (inputField == null || == "")
+        inputField = GameObject.Find("InputName").GetComponent<InputField>();
+        string input = inputField.text;
+
+        if (input == "")
         {PlaceHolder.GetComponent<Text>().text = "–¼‘O‚ª‹ó—“‚Å‚·";
         }else{ StartCoroutine("Access"); }
       
