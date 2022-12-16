@@ -23,7 +23,7 @@ public class DBAccess1 : MonoBehaviour
         string input = inputField.text;
 
         if (input == "")
-        {PlaceHolder.GetComponent<Text>().text = "–¼‘O‚ª‹ó—“‚Å‚·";
+        {PlaceHolder.GetComponent<Text>().text = "<color=red>–¼‘O‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢</color>";
         }else{ StartCoroutine("Access"); }
       
     }
