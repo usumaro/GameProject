@@ -11,6 +11,8 @@ public class DBAccess2 : MonoBehaviour
 
    void Start()
     {
+
+        BestTimeText = GameObject.Find("BestTimeText");
         StartCoroutine("Access");
      
     }
@@ -20,7 +22,7 @@ public class DBAccess2 : MonoBehaviour
     {
         
 
-        StartCoroutine("http://localhost/dbaccess/selecttest2.php");
+        StartCoroutine(Post("http://localhost/dbaccess/selecttest2.php"));
       
 
         yield return 0;
