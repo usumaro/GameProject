@@ -17,6 +17,12 @@ public class PauseScript : MonoBehaviour
 	private GameObject canvas;
 
 	// Update is called once per frame
+
+	void Start()
+	{
+
+		Time.timeScale = 1f;
+	}
 	void Update()
 	{
 		if (Input.GetKeyDown("q"))

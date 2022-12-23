@@ -38,7 +38,7 @@ public class DBAccess2 : MonoBehaviour
 
             string[] data = www.downloadHandler.text.Split(',');
 
-            BestTimeText.GetComponent<Text>().text = data[1];
+            BestTimeText.GetComponent<Text>().text ="BestTime :"+ www.downloadHandler.text + "•b";
         
         }
     

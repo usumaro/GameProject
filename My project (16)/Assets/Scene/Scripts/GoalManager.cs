@@ -25,7 +25,7 @@ public class GoalManager : MonoBehaviour
     {
         if (isGoal == true && Input.GetKey(KeyCode.Space))
         {
-
+            Time.timeScale = 1f;
             Restart();
         
         }

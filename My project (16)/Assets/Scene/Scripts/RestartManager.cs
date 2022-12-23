@@ -38,7 +38,7 @@ public class RestartManager : MonoBehaviour
 
     public void Restart()
     {
-
+        
         Scene loadScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(loadScene.name);
 

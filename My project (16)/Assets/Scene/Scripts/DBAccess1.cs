@@ -36,7 +36,7 @@ public class DBAccess1 : MonoBehaviour
         dic.Add("name1", inputField.GetComponentInChildren<InputField>().text);
 
 
-        StartCoroutine(Post("http://localhost/dbaccess/selecttest1.php", dic));
+        StartCoroutine(Post("http://localhost/dbaccess/selecttest.php", dic));
       
 
         yield return 0;
