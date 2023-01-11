@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class DBAccess1 : MonoBehaviour
+public class DBAccess3 : MonoBehaviour
 {
     GameObject Ghost;
     GameObject Player;
+
+    float xp = 0;
+    float yp = 0;
 
     public void Start()
     {
@@ -23,14 +26,24 @@ public class DBAccess1 : MonoBehaviour
       
     }
 
-    public void 
+    public void Update()
+    {
+        Vector3 posi = Player.transform.position;
+      xp = posi.x;
+      yp = posi.y;
+       
+        StartCoroutine("Access");
+    
+    
+    
+    
+    }
 
     private IEnumerator Access()
     {
         Dictionary<string, string> dic = new Dictionary<string, string>();
-        dic.Add("time1", Time.GetComponent<Text>().text);
-        dic.Add("name1", inputField.GetComponentInChildren<InputField>().text);
-
+        dic.Add("xp", xp);
+        dic.Add("yp", yp);
 
         StartCoroutine(Post("http://localhost/dbaccess/selecttest3.php", dic));
       
