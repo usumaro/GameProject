@@ -6,11 +6,13 @@ using UnityEngine.Networking;
 
 public class DBAccess3 : MonoBehaviour
 {
-    GameObject Ghost;
-    GameObject Player;
+   
+    public GameObject Player;
 
     string xp = "";
     string yp = "";
+
+    private float timeleft;
 
 
 
@@ -18,7 +20,7 @@ public class DBAccess3 : MonoBehaviour
     {
 
         Player = GameObject.Find("Player");
-        Ghost = GameObject.Find("Ghost");
+        
         
       
 
@@ -30,14 +32,22 @@ public class DBAccess3 : MonoBehaviour
 
     public void Update()
     {
-        Vector3 posi = Player.transform.position;
-        xp = posi.x.ToString();
-        yp = posi.y.ToString();
-        
-       
-        StartCoroutine("Access");
-    
-    
+
+        timeleft -= Time.deltaTime;
+
+        //ÅZïbÇ≤Ç∆Ç…ç¿ïWÇãLò^
+        if (timeleft <= 0.0)
+        {
+            timeleft = 0.5f;
+
+            Vector3 posi = transform.position;
+            xp = posi.x.ToString();
+            yp = posi.y.ToString();
+
+
+            StartCoroutine("Access");
+
+        }
     
     
     }
