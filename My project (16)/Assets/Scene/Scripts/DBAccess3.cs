@@ -9,8 +9,10 @@ public class DBAccess3 : MonoBehaviour
     GameObject Ghost;
     GameObject Player;
 
-    float xp = 0f;
-    float yp = 0f;
+    string xp = "";
+    string yp = "";
+
+
 
     public void Start()
     {
@@ -29,8 +31,8 @@ public class DBAccess3 : MonoBehaviour
     public void Update()
     {
         Vector3 posi = Player.transform.position;
-        xp = posi.x;
-        yp = posi.y;
+        xp = posi.x.ToString();
+        yp = posi.y.ToString();
         
        
         StartCoroutine("Access");
@@ -42,7 +44,7 @@ public class DBAccess3 : MonoBehaviour
 
     private IEnumerator Access()
     {
-        Dictionary<string, float> dic = new Dictionary<string, float>();
+        Dictionary<string, string> dic = new Dictionary<string, string>();
         dic.Add("posx", xp);
         dic.Add("posy", yp);
 
@@ -52,10 +54,10 @@ public class DBAccess3 : MonoBehaviour
         yield return 0;
     }
 
-    private IEnumerator Post(string url, Dictionary<string, float> post)
+    private IEnumerator Post(string url, Dictionary<string, string> post)
     {
         WWWForm form = new WWWForm();
-        foreach (KeyValuePair<string, float> post_arg in post)
+        foreach (KeyValuePair<string, string> post_arg in post)
         {
             form.AddField(post_arg.Key, post_arg.Value);
         }
