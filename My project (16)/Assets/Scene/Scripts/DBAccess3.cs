@@ -8,11 +8,11 @@ public class DBAccess3 : MonoBehaviour
 {
    
     public GameObject Player;
-    public GoalManager goal;
+    public GoalManager Goal;
 
-    float xp;
-    float yp;
-    float zp;
+    string xp;
+    string yp;
+    string zp;
 
     private float timeleft;
 
@@ -21,7 +21,7 @@ public class DBAccess3 : MonoBehaviour
     public void Start()
     {
 
-        Player = GameObject.Find("Player");
+        Player = GameObject.Find("player");
         
         
       
@@ -36,27 +36,40 @@ public class DBAccess3 : MonoBehaviour
     {
 
         timeleft -= Time.deltaTime;
+        if (Goal.isGoal == false)
+        { //ÉSÅ[ÉãÇµÇƒÇ»Ç¢Ç∆Ç´ÇæÇØãLò^
 
-        //ÅZïbÇ≤Ç∆Ç…ç¿ïWÇãLò^
-        if (timeleft <= 0.0 && goal.isGoal == false)
-        {
-            timeleft = 0.5f;
+            if (timeleft <= 0.0)
+            {
+                timeleft = 0.5f;
+                //ÅZïbÇ≤Ç∆Ç…ç¿ïWÇãLò^
+                Vector3 posi = Player.transform.position;
+                xp = posi.x.ToString();
+                yp = posi.y.ToString();
+                zp = posi.z.ToString();
 
-            Vector3 posi = transform.position;
-            xp = posi.x;
-            yp = posi.y;
-            zp = posi.z;
+                StartCoroutine("Access");
 
-            StartCoroutine("Access");
+                Debug.Log(xp);
+                Debug.Log(yp);
+                Debug.Log(zp);
+            }
+
+
+
 
         }
+
+
+
+        
     
     
     }
 
     private IEnumerator Access()
     {
-        Dictionary<string, float> dic = new Dictionary<string, float>();
+        Dictionary<string, string> dic = new Dictionary<string, string>();
         dic.Add("posx", xp);
         dic.Add("posy", yp);
         dic.Add("posz", zp);
@@ -67,10 +80,10 @@ public class DBAccess3 : MonoBehaviour
         yield return 0;
     }
 
-    private IEnumerator Post(string url, Dictionary<string, float> post)
+    private IEnumerator Post(string url, Dictionary<string, string> post)
     {
         WWWForm form = new WWWForm();
-        foreach (KeyValuePair<string, float> post_arg in post)
+        foreach (KeyValuePair<string, string> post_arg in post)
         {
             form.AddField(post_arg.Key, post_arg.Value);
         }
