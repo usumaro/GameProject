@@ -8,9 +8,11 @@ public class DBAccess3 : MonoBehaviour
 {
    
     public GameObject Player;
+    public GoalManager goal;
 
-    string xp = "";
-    string yp = "";
+    float xp;
+    float yp;
+    float zp;
 
     private float timeleft;
 
@@ -36,14 +38,14 @@ public class DBAccess3 : MonoBehaviour
         timeleft -= Time.deltaTime;
 
         //ÅZïbÇ≤Ç∆Ç…ç¿ïWÇãLò^
-        if (timeleft <= 0.0)
+        if (timeleft <= 0.0 && goal.isGoal == false)
         {
             timeleft = 0.5f;
 
             Vector3 posi = transform.position;
-            xp = posi.x.ToString();
-            yp = posi.y.ToString();
-
+            xp = posi.x;
+            yp = posi.y;
+            zp = posi.z;
 
             StartCoroutine("Access");
 
@@ -54,9 +56,10 @@ public class DBAccess3 : MonoBehaviour
 
     private IEnumerator Access()
     {
-        Dictionary<string, string> dic = new Dictionary<string, string>();
+        Dictionary<string, float> dic = new Dictionary<string, float>();
         dic.Add("posx", xp);
         dic.Add("posy", yp);
+        dic.Add("posz", zp);
 
         StartCoroutine(Post("http://localhost/dbaccess/selecttest3.php", dic));
       
@@ -64,10 +67,10 @@ public class DBAccess3 : MonoBehaviour
         yield return 0;
     }
 
-    private IEnumerator Post(string url, Dictionary<string, string> post)
+    private IEnumerator Post(string url, Dictionary<string, float> post)
     {
         WWWForm form = new WWWForm();
-        foreach (KeyValuePair<string, string> post_arg in post)
+        foreach (KeyValuePair<string, float> post_arg in post)
         {
             form.AddField(post_arg.Key, post_arg.Value);
         }
