@@ -22,6 +22,7 @@ public class DropManager : MonoBehaviour
         if (player.transform.position.y < -10)
         {
             restart.PrintGameOver();
+            restart.IsGameOver();
         }
 
         if (restart.IsGameOver() && Input.GetKey(KeyCode.Space))

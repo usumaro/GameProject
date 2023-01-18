@@ -8,7 +8,7 @@
   $posy = $_POST["posy"];
   $posz = $_POST["posz"];
 
-  $sql = "INSERT INTO position_table(x,y,z) VALUES ('".$posx."','".$posy."','".$posz."')" ;
+  $sql = " DELETE FROM `position_table` ; INSERT INTO position_table(x,y,z) VALUES ('".$posx."','".$posy."','".$posz."');" ;
  
   $result = mysqli_query($db, $sql);
 

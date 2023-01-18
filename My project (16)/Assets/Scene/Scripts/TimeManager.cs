@@ -14,6 +14,8 @@ public class TimeManager : MonoBehaviour
     public GameObject Text1;
     public GameObject TimeButton;
     public GameObject Name;
+   
+    public Coll col;
 
     private RestartManager restart;
 
@@ -29,7 +31,7 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (restart.IsGameOver() && Input.GetKey(KeyCode.Space))
+        if (col.Go == true && Input.GetKey(KeyCode.Space))
         {
             restart.Restart();
 

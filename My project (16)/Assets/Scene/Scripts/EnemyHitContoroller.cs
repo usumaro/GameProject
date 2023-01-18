@@ -8,7 +8,7 @@ public class EnemyHitContoroller : MonoBehaviour
 
     public GameObject text;
 
-
+    public Coll col;
 
     private RestartManager restart;
 
@@ -27,7 +27,7 @@ public class EnemyHitContoroller : MonoBehaviour
     {
 
 
-        if (restart.IsGameOver() && Input.GetKey(KeyCode.Space))
+        if (col.Go == true && Input.GetKey(KeyCode.Space))
         {
             restart.Restart();
         
@@ -39,8 +39,9 @@ public class EnemyHitContoroller : MonoBehaviour
     {
         if (other.gameObject.name == player.name && goal.isGoal == false)
         {
+            restart.IsGameOver();
             restart.PrintGameOver();
-
+            
         }
     }
 }

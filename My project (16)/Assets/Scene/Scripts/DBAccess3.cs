@@ -9,6 +9,7 @@ public class DBAccess3 : MonoBehaviour
    
     public GameObject Player;
     public GoalManager Goal;
+    public Coll col;
 
     string xp;
     string yp;
@@ -36,8 +37,8 @@ public class DBAccess3 : MonoBehaviour
     {
 
         timeleft -= Time.deltaTime;
-        if (Goal.isGoal == false)
-        { //ƒS[ƒ‹‚µ‚Ä‚È‚¢‚Æ‚«‚¾‚¯‹L˜^
+        if (Goal.isGoal == false && col.Go == false)
+        { //ƒS[ƒ‹&GameOver‚µ‚Ä‚È‚¢‚Æ‚«‚¾‚¯‹L˜^
 
             if (timeleft <= 0.0)
             {
