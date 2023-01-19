@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 
 public class DBAccess3 : MonoBehaviour
 {
-   
+
     public GameObject Player;
     public GoalManager Goal;
     public Coll col;
@@ -23,14 +23,14 @@ public class DBAccess3 : MonoBehaviour
     {
 
         Player = GameObject.Find("player");
-        
-        
+
       
 
-        
 
-        
-      
+
+
+
+
     }
 
     public void Update()
@@ -63,9 +63,9 @@ public class DBAccess3 : MonoBehaviour
 
 
 
-        
-    
-    
+
+
+
     }
 
     private IEnumerator Access()
@@ -76,10 +76,14 @@ public class DBAccess3 : MonoBehaviour
         dic.Add("posz", zp);
 
         StartCoroutine(Post("http://localhost/dbaccess/selecttest3.php", dic));
-      
+
 
         yield return 0;
     }
+
+
+    
+
 
     private IEnumerator Post(string url, Dictionary<string, string> post)
     {
@@ -97,6 +101,11 @@ public class DBAccess3 : MonoBehaviour
 
 
     }
+
+
+
+
+    
 
 
 

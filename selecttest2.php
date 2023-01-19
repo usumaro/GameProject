@@ -4,7 +4,7 @@
   $db = connectDB();
 
 
-  $sql = "SELECT time FROM time_table ORDER BY TIME LIMIT 1 " ;
+  $sql = "SELECT time FROM time_table ORDER BY TIME DESC LIMIT 1 " ;
  
   $result = mysqli_query($db, $sql);
 

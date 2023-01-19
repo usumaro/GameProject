@@ -10786,6 +10786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 255694317}
   text: {fileID: 1594068759}
+  col: {fileID: 267621890}
   goal: {fileID: 256397722}
 --- !u!114 &1580508486
 MonoBehaviour:
@@ -11201,6 +11202,7 @@ MonoBehaviour:
   Text1: {fileID: 1421065048}
   TimeButton: {fileID: 223245111}
   Name: {fileID: 2052538288}
+  col: {fileID: 267621890}
 --- !u!114 &1708665656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11628,8 +11630,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbb9703a7bcb6347bac2437990bc58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ghost: {fileID: 2109267809}
   Player: {fileID: 255694317}
+  Goal: {fileID: 256397722}
+  col: {fileID: 267621890}
 --- !u!1001 &7308562075746387385
 PrefabInstance:
   m_ObjectHideFlags: 0
