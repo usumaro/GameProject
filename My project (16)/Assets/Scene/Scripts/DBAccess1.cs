@@ -37,7 +37,8 @@ public class DBAccess1 : MonoBehaviour
 
 
         StartCoroutine(Post("http://localhost/dbaccess/selecttest.php", dic));
-      
+        StartCoroutine(Post("http://localhost/dbaccess/selecttest5.php", dic));
+
 
         yield return 0;
     }
