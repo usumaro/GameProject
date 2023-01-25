@@ -1,6 +1,6 @@
 <?php
 
-  require_once('mysql_connect2.php');
+  require_once('mysql_connect.php');
   $db = connectDB();
 
 
