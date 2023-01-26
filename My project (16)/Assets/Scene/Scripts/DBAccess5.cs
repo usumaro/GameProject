@@ -8,21 +8,38 @@ public class DBAccess5 : MonoBehaviour
 {
    private GameObject Ghost ;
 
+    float px;
+    float py;
+    float pz;
+
+
+    public void Start()
+    {
+
+        Ghost = GameObject.Find("Ghost");
+
+        
+
+
+
+    }
+
 
     public void Button_Push()
     {
-        Ghost = GameObject.Find("Ghost");
+        
+
+        StartCoroutine("Access");
 
         Transform myTransform = Ghost.transform;
 
         Vector3 pos = myTransform.position;
 
+        pos.x = px;
+        pos.y = py;
+        pos.z = pz;
 
-        StartCoroutine("Access");
-
-
-
-
+        myTransform.position = pos;
     }
 
 
@@ -31,7 +48,7 @@ public class DBAccess5 : MonoBehaviour
     {
 
 
-        StartCoroutine(Post("http://localhost/dbaccess/selecttest6.php"));
+        StartCoroutine(Post("http://localhost/dbaccess/positioninput.php"));
 
 
         yield return 0;
@@ -57,12 +74,12 @@ public class DBAccess5 : MonoBehaviour
             else if (www.isDone)
             {
 
-                float[] data = www.downloadHandler.text.Split(',');
-                pos.x = data[1];
-                pos.y = data[2];
-                pos.z = data[3];
-                    
-                myTransform.position = pos;
+                string[] data = www.downloadHandler.text.Split('/');
+                px = float.Parse(data[1]);
+                py = float.Parse(data[2]);
+                pz = float.Parse(data[3]);
+
+
             }
 
 

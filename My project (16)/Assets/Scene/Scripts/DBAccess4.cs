@@ -26,7 +26,7 @@ public class DBAccess4 : MonoBehaviour
     {
 
 
-        StartCoroutine(Post("http://localhost/dbaccess/selecttest4.php"));
+        StartCoroutine(Post("http://localhost/dbaccess/resetpositiontable.php"));
 
 
         yield return 0;

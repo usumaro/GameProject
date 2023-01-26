@@ -22,7 +22,7 @@ public class DBAccess2 : MonoBehaviour
     {
         
 
-        StartCoroutine(Post("http://localhost/dbaccess/selecttest2.php"));
+        StartCoroutine(Post("http://localhost/dbaccess/loadbesttime.php"));
       
 
         yield return 0;
