@@ -75,7 +75,7 @@ public class DBAccess3 : MonoBehaviour
         dic.Add("posy", yp);
         dic.Add("posz", zp);
 
-        StartCoroutine(Post("http://localhost/dbaccess/selecttest3.php", dic));
+        StartCoroutine(Post("http://localhost/dbaccess/positioninput.php", dic));
 
 
         yield return 0;

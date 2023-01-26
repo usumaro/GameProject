@@ -48,7 +48,7 @@ public class DBAccess5 : MonoBehaviour
     {
 
 
-        StartCoroutine(Post("http://localhost/dbaccess/positioninput.php"));
+        StartCoroutine(Post("http://localhost/dbaccess/loadghost.php"));
 
 
         yield return 0;
