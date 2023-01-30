@@ -9,7 +9,6 @@ public class GhostButton : MonoBehaviour
    private GameObject Ghost ;
 
     float px;
-    float py;
     float pz;
 
     public void Start()
@@ -27,7 +26,6 @@ public class GhostButton : MonoBehaviour
         Vector3 pos = myTransform.position;
 
         pos.x = px;
-        pos.y = py;
         pos.z = pz;
 
         myTransform.position = pos;
@@ -56,10 +54,14 @@ public class GhostButton : MonoBehaviour
             else if (www.isDone)
             {
                 string[] data = www.downloadHandler.text.Split('/');
-                px = float.Parse(data[1]);
-                py = float.Parse(data[2]);
-                pz = float.Parse(data[3]); 
+                px = float.Parse(data[0]);
+                pz = float.Parse(data[1]);
+
+                Debug.Log(data[0]);
+                Debug.Log(data[1]);
+                
             }
         }
+        
     }
 }
