@@ -13,8 +13,7 @@ public class DBAccess1 : MonoBehaviour
 
     public void Button_Push()
     {
-
-       
+  
         PlaceHolder = GameObject.Find("Placeholder");
         
         Time = GameObject.Find("Time");
@@ -35,11 +34,9 @@ public class DBAccess1 : MonoBehaviour
         dic.Add("time1", Time.GetComponent<Text>().text);
         dic.Add("name1", inputField.GetComponentInChildren<InputField>().text);
 
-
         StartCoroutine(Post("http://localhost/dbaccess/savetime.php", dic));
         
         StartCoroutine(Post("http://localhost/dbaccess/bestpositioncopy.php", dic));
-
 
         yield return 0;
     }
@@ -57,12 +54,7 @@ public class DBAccess1 : MonoBehaviour
             yield return www.SendWebRequest();
 
         }
-
-
     }
-
-
-
 }
 
 

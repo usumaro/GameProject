@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class DBAccess5 : MonoBehaviour
+public class GhostButton : MonoBehaviour
 {
    private GameObject Ghost ;
 
@@ -12,23 +12,14 @@ public class DBAccess5 : MonoBehaviour
     float py;
     float pz;
 
-
     public void Start()
     {
-
         Ghost = GameObject.Find("Ghost");
-
-        
-
-
-
     }
-
 
     public void Button_Push()
     {
-        
-
+       
         StartCoroutine("Access");
 
         Transform myTransform = Ghost.transform;
@@ -42,21 +33,12 @@ public class DBAccess5 : MonoBehaviour
         myTransform.position = pos;
     }
 
-
-
     private IEnumerator Access()
     {
-
-
         StartCoroutine(Post("http://localhost/dbaccess/loadghost.php"));
-
 
         yield return 0;
     }
-
-
-
-
 
     private IEnumerator Post(string url)
     {
@@ -73,32 +55,11 @@ public class DBAccess5 : MonoBehaviour
             }
             else if (www.isDone)
             {
-
                 string[] data = www.downloadHandler.text.Split('/');
                 px = float.Parse(data[1]);
                 py = float.Parse(data[2]);
-                pz = float.Parse(data[3]);
-
-
+                pz = float.Parse(data[3]); 
             }
-
-
-
-
-
         }
     }
-
-
-
-
-
-
-
-
 }
-
-
-
-
-

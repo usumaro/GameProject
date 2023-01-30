@@ -27,14 +27,11 @@ public class GoalManager : MonoBehaviour
         {
             Time.timeScale = 1f;
             Restart();
-        
-        }
-        
+        } 
     }
 
     public void OnTriggerEnter(Collider other)
     {
-
         if (other.name == player.name)
         {
 
@@ -45,25 +42,14 @@ public class GoalManager : MonoBehaviour
             isGoal = true;
 
             seAudioSource.Play();
-
         }    
-   
-    
     }
 
 
     private void Restart()
     {
-
         Scene loadScene = SceneManager.GetActiveScene();
 
         SceneManager.LoadScene(loadScene.name);
-    
-    
     }
-
-
-
-
-
 }

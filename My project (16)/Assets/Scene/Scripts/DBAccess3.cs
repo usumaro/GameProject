@@ -6,7 +6,6 @@ using UnityEngine.Networking;
 
 public class DBAccess3 : MonoBehaviour
 {
-
     public GameObject Player;
     public GoalManager Goal;
     public Coll col;
@@ -17,20 +16,9 @@ public class DBAccess3 : MonoBehaviour
 
     private float timeleft;
 
-
-
     public void Start()
     {
-
-        Player = GameObject.Find("player");
-
-      
-
-
-
-
-
-
+      Player = GameObject.Find("player");
     }
 
     public void Update()
@@ -55,17 +43,7 @@ public class DBAccess3 : MonoBehaviour
                 Debug.Log(yp);
                 Debug.Log(zp);
             }
-
-
-
-
         }
-
-
-
-
-
-
     }
 
     private IEnumerator Access()
@@ -77,13 +55,8 @@ public class DBAccess3 : MonoBehaviour
 
         StartCoroutine(Post("http://localhost/dbaccess/positioninput.php", dic));
 
-
         yield return 0;
     }
-
-
-    
-
 
     private IEnumerator Post(string url, Dictionary<string, string> post)
     {
@@ -96,19 +69,9 @@ public class DBAccess3 : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))
         {
             yield return www.SendWebRequest();
-
         }
 
-
     }
-
-
-
-
-    
-
-
-
 }
 
 

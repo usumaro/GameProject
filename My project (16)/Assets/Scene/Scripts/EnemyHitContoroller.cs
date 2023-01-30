@@ -14,26 +14,20 @@ public class EnemyHitContoroller : MonoBehaviour
 
     public GoalManager goal;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        restart = new RestartManager(player, text);
-        
+        restart = new RestartManager(player, text);  
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         if (col.Go == true && Input.GetKey(KeyCode.Space))
         {
             restart.Restart();
-        
         }
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,7 +35,6 @@ public class EnemyHitContoroller : MonoBehaviour
         {
             restart.IsGameOver();
             restart.PrintGameOver();
-            
         }
     }
 }

@@ -30,7 +30,5 @@ public class DropManager : MonoBehaviour
             restart.Restart();
         
         }
-
-
     }
 }

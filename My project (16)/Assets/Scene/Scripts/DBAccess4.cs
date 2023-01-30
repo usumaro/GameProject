@@ -6,35 +6,17 @@ using UnityEngine.Networking;
 
 public class DBAccess4 : MonoBehaviour
 {
-
-
-
     public void Start()
     {
-
-
         StartCoroutine("Access");
-
-
-
-
     }
-
-
 
     private IEnumerator Access()
     {
-
-
         StartCoroutine(Post("http://localhost/dbaccess/resetpositiontable.php"));
-
 
         yield return 0;
     }
-
-
-
-
 
     private IEnumerator Post(string url)
     {
@@ -43,21 +25,8 @@ public class DBAccess4 : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))
         {
             yield return www.SendWebRequest();
-
-          
-
-          
-
         }
     }
-
-
-
-
-
-
-
-
 }
 
 

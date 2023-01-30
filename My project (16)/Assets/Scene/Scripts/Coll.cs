@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Coll : MonoBehaviour
 {
-
     public GameObject player;
     public GameObject Text;
     public bool Go = false;
-
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +22,6 @@ public class Coll : MonoBehaviour
             Go = true;
         }
     }
-
-
 }
 
     
