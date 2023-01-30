@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class DBAccess1 : MonoBehaviour
+public class SaveTime : MonoBehaviour
 {
     
     public InputField inputField;

@@ -4,16 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class DBAccess4 : MonoBehaviour
+public class BestTime : MonoBehaviour
 {
-    public void Start()
+    public GameObject BestTimeText;
+   
+   void Start()
     {
+
+        BestTimeText = GameObject.Find("BestTimeText");
         StartCoroutine("Access");
+    
     }
 
     private IEnumerator Access()
     {
-        StartCoroutine(Post("http://localhost/dbaccess/resetpositiontable.php"));
+        StartCoroutine(Post("http://localhost/dbaccess/loadbesttime.php"));    
 
         yield return 0;
     }
@@ -25,11 +30,16 @@ public class DBAccess4 : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))
         {
             yield return www.SendWebRequest();
-        }
+
+            string[] data = www.downloadHandler.text.Split(',');
+
+            BestTimeText.GetComponent<Text>().text ="BestTime :"+ www.downloadHandler.text + "•b";
+        
+        }    
     }
 }
 
 
 
-
+    
 

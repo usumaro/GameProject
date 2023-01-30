@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class DBAccess3 : MonoBehaviour
+public class SavePosition : MonoBehaviour
 {
     public GameObject Player;
     public GoalManager Goal;
