@@ -4,9 +4,19 @@
   $db = connectDB();
 
 
-  $sql = "SELECT * FROM bestposition_table order by id  ";
+  $sql = "SELECT xb FROM bestposition_table order by id  ";
  
   $result = mysqli_query($db, $sql);
+
+$data = array();
+$i = 1;
+foreach($result as $value){
+
+  echo $value;
+}
+
+
+
 
   while ($data = $result ->fetch_assoc())
   {
@@ -24,5 +34,6 @@
   }
 
   echo $res;
+ 
 
 ?>
