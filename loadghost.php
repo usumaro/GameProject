@@ -4,25 +4,17 @@
   $db = connectDB();
 
 
-  $sql = "SELECT xb FROM bestposition_table order by id  ";
+  $sql = "SELECT * FROM bestposition_table ";
  
   $result = mysqli_query($db, $sql);
 
-$data = array();
-$i = 1;
-foreach($result as $value){
-
-  echo $value;
-}
-
-
-
+  $timedata = array();
 
   while ($data = $result ->fetch_assoc())
   {
-     $res = $data['xb'];
-     $res .= "/".$data['zb'];
-    
+     $timedata[] = array(
+      $data['id'] => $data['xb']." ".$data['yb']." ".$data['zb']
+     );  
   }
 
   $db = mysqli_close($db);
@@ -33,7 +25,7 @@ foreach($result as $value){
     exit('データベースとの接続を閉じられませんでした。');
   }
 
-  echo $res;
+  echo json_encode($timedata);
  
 
 ?>
