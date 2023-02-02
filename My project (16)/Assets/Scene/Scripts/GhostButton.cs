@@ -53,7 +53,10 @@ public class GhostButton : MonoBehaviour
             }
             else if (www.isDone)
             {
-                string[] data = www.downloadHandler.text.Split('/');
+                string data = www.downloadHandler.text.Replace("\"", "").Replace("]", "").Replace("[", "");
+
+                string[] row = data.split(',');
+ 
                 px = float.Parse(data[0]);
                 pz = float.Parse(data[1]);
 

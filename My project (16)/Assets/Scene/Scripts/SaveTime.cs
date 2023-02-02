@@ -52,7 +52,6 @@ public class SaveTime : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))
         {
             yield return www.SendWebRequest();
-
         }
     }
 }
