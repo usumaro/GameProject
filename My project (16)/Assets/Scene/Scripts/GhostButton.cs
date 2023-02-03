@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,6 +51,7 @@ public class GhostButton : MonoBehaviour
 
     private IEnumerator Post(string url)
     {
+        Debug.Log("Post");
         WWWForm form = new WWWForm();
 
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))
@@ -63,7 +65,13 @@ public class GhostButton : MonoBehaviour
             }
             else if (www.isDone)
             {
-                
+                string data = www.downloadHandler.text;
+                this.positionData = JsonConvert.DeserializeObject<List<Position>>(data);
+
+                foreach (Position position in positionData)
+                {
+                    Debug.Log($" id={position.id} x={position.x} y={position.y} z={position.z} ");
+                }
             }
         }
         

@@ -3,7 +3,6 @@
   require_once('mysql_connect.php');
   $db = connectDB();
 
-
   $sql = "SELECT * FROM bestposition_table ";
  
   $result = mysqli_query($db, $sql);
@@ -13,7 +12,10 @@
   while ($data = $result ->fetch_assoc())
   {
      $timedata[] = array(
-      $data['id'] => $data['xb']." ".$data['yb']." ".$data['zb']
+     'id' => $data['id'] ,
+     'x' => $data['xb'] ,
+     'y' => $data['yb'] ,
+     'z' => $data['zb'] 
      );  
   }
 
