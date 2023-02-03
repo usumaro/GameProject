@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 public class GhostButton : MonoBehaviour
 {
    private GameObject Ghost ;
+   List<Position> positionData = null;
 
     float px;
     float pz;
@@ -18,7 +19,7 @@ public class GhostButton : MonoBehaviour
 
     public void Button_Push()
     {
-       
+        Debug.Log("ŠJŽn");
         StartCoroutine("Access");
 
         Transform myTransform = Ghost.transform;
@@ -31,8 +32,17 @@ public class GhostButton : MonoBehaviour
         myTransform.position = pos;
     }
 
+    public class Position
+    { 
+        public string id { get; set; }
+        public string x { get; set; }
+        public string y { get; set; }
+        public string z { get; set; }
+    }
+
     private IEnumerator Access()
     {
+        Debug.Log("Access");
         StartCoroutine(Post("http://localhost/dbaccess/loadghost.php"));
 
         yield return 0;
@@ -53,15 +63,6 @@ public class GhostButton : MonoBehaviour
             }
             else if (www.isDone)
             {
-                string data = www.downloadHandler.text.Replace("\"", "").Replace("]", "").Replace("[", "");
-
-                string[] row = data.split(',');
- 
-                px = float.Parse(data[0]);
-                pz = float.Parse(data[1]);
-
-                Debug.Log(data[0]);
-                Debug.Log(data[1]);
                 
             }
         }
