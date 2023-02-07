@@ -10638,7 +10638,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30B4\u30FC\u30B9\u30C8\u3092\u30ED\u30FC\u30C9"
+  m_Text: "\u30B4\u30FC\u30B9\u30C8\u306E\u30AA\u30F3"
 --- !u!222 &1423017946
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11856,8 +11856,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2124262643}
-        m_TargetAssemblyTypeName: DBAccess5, Assembly-CSharp
-        m_MethodName: Button_Push
+        m_TargetAssemblyTypeName: GhostButton, Assembly-CSharp
+        m_MethodName: Push_Button_Change
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

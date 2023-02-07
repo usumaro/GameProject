@@ -7,33 +7,61 @@ using UnityEngine.Networking;
 
 public class GhostButton : MonoBehaviour
 {
-   private GameObject Ghost ;
-   List<Position> positionData = null;
+    private GameObject Ghost ;
+    private GameObject GhostButtonText;
+    List<Position> positionData = null;
 
     float px;
     float pz;
+    float dt = 0;
+    private bool on_off_button_bool;//ゴーストオンオフ
+
 
     public void Start()
     {
         Ghost = GameObject.Find("Ghost");
+        GhostButtonText = GameObject.Find("GhostButtonText");
+        on_off_button_bool = true;//ゴーストオンオフ
+        GhostButtonText.GetComponent<Text>().text = "ゴーストをオフ";//ゴーストオンオフデフォルト
     }
 
-    public void Button_Push()
+    public void Push_Button_Change()//ゴーストオンオフボタン
+    {
+        on_off_button_bool = !on_off_button_bool;
+
+        if (on_off_button_bool == true)
+        {
+            Ghost.SetActive(true);
+            GhostButtonText.GetComponent<Text>().text = "ゴーストをオフ";
+        }
+        else
+        {
+            Ghost.SetActive(false);
+            GhostButtonText.GetComponent<Text>().text = "ゴーストをオン";
+        }
+    }
+
+    public void Update()
     {
         Debug.Log("開始");
-        StartCoroutine("Access");
+        dt += Time.deltaTime;
+        if (dt > 0.5) //0.5秒ごとに座標に反映
+        {
+            dt = 0.0f;
 
-        Transform myTransform = Ghost.transform;
+            StartCoroutine("Access");
 
-        Vector3 pos = myTransform.position;
+            Transform myTransform = Ghost.transform;
 
-        pos.x = px;
-        pos.z = pz;
+            Vector3 pos = myTransform.position;
 
-        myTransform.position = pos;
+            pos.x = px;
+            pos.z = pz;
+            myTransform.position = pos;
+        }
     }
 
-    public class Position
+    public class Position //配列のリスト
     { 
         public string id { get; set; }
         public string x { get; set; }
@@ -41,7 +69,7 @@ public class GhostButton : MonoBehaviour
         public string z { get; set; }
     }
 
-    private IEnumerator Access()
+    private IEnumerator Access()　//ゴースト座標の呼び出し
     {
         Debug.Log("Access");
         StartCoroutine(Post("http://localhost/dbaccess/loadghost.php"));
@@ -63,17 +91,25 @@ public class GhostButton : MonoBehaviour
                 Debug.Log("HttpPost NG;"+ www.error);
 
             }
-            else if (www.isDone)
+            else if (www.isDone)　//エラーがなければリストでデータを取得
             {
                 string data = www.downloadHandler.text;
                 this.positionData = JsonConvert.DeserializeObject<List<Position>>(data);
 
-                foreach (Position position in positionData)
+                foreach (Position position in positionData)//0.5秒ごとに座標データを取得
                 {
-                    Debug.Log($" id={position.id} x={position.x} y={position.y} z={position.z} ");
+                    if (position == positionData.Last())
+                    {
+                        break;　//最後の行でループを抜ける
+                    }
+                    else
+                    {     
+                        px = float.Parse(position.x);
+                        pz = float.Parse(position.z);
+                        yield return new WaitForSeconds(0.5f);
+                    }
                 }
             }
-        }
-        
+        }       
     }
 }

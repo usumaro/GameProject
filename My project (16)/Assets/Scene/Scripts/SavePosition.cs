@@ -18,7 +18,8 @@ public class SavePosition : MonoBehaviour
 
     public void Start()
     {
-      Player = GameObject.Find("player");
+        Player = GameObject.Find("player");
+        StartCoroutine("Reset");
     }
 
     public void Update()
@@ -58,6 +59,15 @@ public class SavePosition : MonoBehaviour
         yield return 0;
     }
 
+    private IEnumerator Reset()
+    {
+        Debug.Log("座標リセット");
+
+        StartCoroutine(Post2("http://localhost/dbaccess/resetpositiontable.php"));
+
+        yield return 0;
+    }
+
     private IEnumerator Post(string url, Dictionary<string, string> post)
     {
         WWWForm form = new WWWForm();
@@ -72,8 +82,12 @@ public class SavePosition : MonoBehaviour
         }
 
     }
-}
 
+    private IEnumerator Post2(string url)
+    {
+        yield return 0;
+    }
+}
 
 
     
