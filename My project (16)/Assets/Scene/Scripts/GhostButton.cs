@@ -15,6 +15,7 @@ public class GhostButton : MonoBehaviour
     float pz;
     float dt = 0;
     private bool on_off_button_bool;//ゴーストオンオフ
+    int count = 0;//カウンター
 
 
     public void Start()
@@ -23,6 +24,24 @@ public class GhostButton : MonoBehaviour
         GhostButtonText = GameObject.Find("GhostButtonText");
         on_off_button_bool = true;//ゴーストオンオフ
         GhostButtonText.GetComponent<Text>().text = "ゴーストをオフ";//ゴーストオンオフデフォルト
+        StartCoroutine("Access");//DBの座標を取得
+
+        dt += Time.deltaTime;
+        if (dt > 0.5) //0.5秒ごとに座標に反映
+        {
+            position = positionData[count];
+            px = positionData.x;
+            pz = positionData.z;
+
+            Transform myTransform = Ghost.transform;
+            Vector3 pos = myTransform.position;
+
+            pos.x = px;
+            pos.z = pz;
+            myTransform.position = pos;
+            
+            dt = 0.0f;
+        }
     }
 
     public void Push_Button_Change()//ゴーストオンオフボタン
@@ -37,27 +56,7 @@ public class GhostButton : MonoBehaviour
         else
         {
             Ghost.SetActive(false);
-            GhostButtonText.GetComponent<Text>().text = "ゴーストをオン";
-        }
-    }
-
-    public void Update()
-    {
-        Debug.Log("開始");
-        dt += Time.deltaTime;
-        if (dt > 0.5) //0.5秒ごとに座標に反映
-        {
-            dt = 0.0f;
-
-            StartCoroutine("Access");
-
-            Transform myTransform = Ghost.transform;
-
-            Vector3 pos = myTransform.position;
-
-            pos.x = px;
-            pos.z = pz;
-            myTransform.position = pos;
+            GhostButtonText.GetComponent<Text>().text = "ゴーストをオン";     
         }
     }
 
@@ -95,20 +94,6 @@ public class GhostButton : MonoBehaviour
             {
                 string data = www.downloadHandler.text;
                 this.positionData = JsonConvert.DeserializeObject<List<Position>>(data);
-
-                foreach (Position position in positionData)//0.5秒ごとに座標データを取得
-                {
-                    if (position == positionData.Last())
-                    {
-                        break;　//最後の行でループを抜ける
-                    }
-                    else
-                    {     
-                        px = float.Parse(position.x);
-                        pz = float.Parse(position.z);
-                        yield return new WaitForSeconds(0.5f);
-                    }
-                }
             }
         }       
     }

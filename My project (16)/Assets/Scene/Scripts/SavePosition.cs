@@ -14,7 +14,7 @@ public class SavePosition : MonoBehaviour
     string yp;
     string zp;
 
-    private float timeleft;
+    private float timeleft = 0;
 
     public void Start()
     {
@@ -25,13 +25,13 @@ public class SavePosition : MonoBehaviour
     public void Update()
     {
 
-        timeleft -= Time.deltaTime;
+        timeleft += Time.deltaTime;
         if (Goal.isGoal == false && col.Go == false)
         { //ƒS[ƒ‹&GameOver‚µ‚Ä‚È‚¢‚Æ‚«‚¾‚¯‹L˜^
 
-            if (timeleft <= 0.0)
+            if (timeleft >= 0.5)
             {
-                timeleft = 0.5f;
+                timeleft = 0f;
                 //Z•b‚²‚Æ‚ÉÀ•W‚ğ‹L˜^
                 Vector3 posi = Player.transform.position;
                 xp = posi.x.ToString();
