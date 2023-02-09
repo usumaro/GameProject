@@ -17,7 +17,6 @@ public class GhostButton : MonoBehaviour
     private bool on_off_button_bool;//ゴーストオンオフ
     int count = 0;//カウンター
 
-
     public void Start()
     {
         Ghost = GameObject.Find("Ghost");
@@ -26,21 +25,25 @@ public class GhostButton : MonoBehaviour
         GhostButtonText.GetComponent<Text>().text = "ゴーストをオフ";//ゴーストオンオフデフォルト
         StartCoroutine("Access");//DBの座標を取得
 
+     
+    }
+
+    public void Update()
+    {
         dt += Time.deltaTime;
         if (dt > 0.5) //0.5秒ごとに座標に反映
         {
-            position = positionData[count];
-            px = positionData.x;
-            pz = positionData.z;
+            var posi = positionData[count];
 
             Transform myTransform = Ghost.transform;
             Vector3 pos = myTransform.position;
 
-            pos.x = px;
-            pos.z = pz;
+            pos.x = float.Parse(posi.x);
+            pos.z = float.Parse(posi.z);
             myTransform.position = pos;
-            
+
             dt = 0.0f;
+            count++;
         }
     }
 
@@ -52,6 +55,8 @@ public class GhostButton : MonoBehaviour
         {
             Ghost.SetActive(true);
             GhostButtonText.GetComponent<Text>().text = "ゴーストをオフ";
+            
+            
         }
         else
         {
