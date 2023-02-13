@@ -5,15 +5,14 @@ using UnityEngine;
 public class DropManager : MonoBehaviour
 {
     public GameObject player;
-
-    public GameObject text;
-
+    public GameObject GameOverText;
     private RestartManager restart;
+    public Coll col;
 
     // Start is called before the first frame update
     void Start()
     {
-        restart = new RestartManager(player, text);
+        restart = new RestartManager(player, GameOverText);
     }
 
     // Update is called once per frame
@@ -22,13 +21,13 @@ public class DropManager : MonoBehaviour
         if (player.transform.position.y < -10)
         {
             restart.PrintGameOver();
-            restart.IsGameOver();
+            Debug.Log("GameOver”»’è");
         }
 
-        if (restart.IsGameOver() && Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Return) && col.isGameOver == true)
         {
             restart.Restart();
-        
+            Debug.Log("Restart”»’è");
         }
     }
 }

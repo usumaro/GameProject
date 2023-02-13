@@ -16,7 +16,7 @@ public class BGMManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (col.Go == true)
+        if (col.isGameOver == true)
         {
             audioSource.Stop();
         }

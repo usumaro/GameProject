@@ -24,8 +24,6 @@ public class GhostButton : MonoBehaviour
         on_off_button_bool = true;//ゴーストオンオフ
         GhostButtonText.GetComponent<Text>().text = "ゴーストをオフ";//ゴーストオンオフデフォルト
         StartCoroutine("Access");//DBの座標を取得
-
-     
     }
 
     public void Update()
@@ -55,8 +53,6 @@ public class GhostButton : MonoBehaviour
         {
             Ghost.SetActive(true);
             GhostButtonText.GetComponent<Text>().text = "ゴーストをオフ";
-            
-            
         }
         else
         {
@@ -93,7 +89,6 @@ public class GhostButton : MonoBehaviour
             if (www.error != null)
             {
                 Debug.Log("HttpPost NG;"+ www.error);
-
             }
             else if (www.isDone)　//エラーがなければリストでデータを取得
             {

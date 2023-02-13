@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-
     public Coll col;
     private bool isCount = false;
-
-
     
-
-
     void Update()
     {
-        if (col.Go == true)
+        if (col.isGameOver == true)
         {
             if(!isCount)
             GetComponent<AudioSource>().Play();

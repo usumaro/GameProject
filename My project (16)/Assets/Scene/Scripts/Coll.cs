@@ -5,8 +5,8 @@ using UnityEngine;
 public class Coll : MonoBehaviour
 {
     public GameObject player;
-    public GameObject Text;
-    public bool Go = false;
+    public GameObject GameOverText;
+    public bool isGameOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +17,9 @@ public class Coll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Text.activeSelf == true)
+        if (GameOverText.activeSelf == true)
         {
-            Go = true;
+            isGameOver = true;
         }
     }
 }

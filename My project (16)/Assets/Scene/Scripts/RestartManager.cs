@@ -8,47 +8,25 @@ using UnityChan;
 public class RestartManager : MonoBehaviour
 {
     public GameObject player;
-    public GameObject text;
+    public GameObject GameOverText;
 
-   
-
-
-    public bool isGameOver = false;
-
-   
-
-    public RestartManager(GameObject player, GameObject text)
+    public RestartManager(GameObject player, GameObject GameOverText)
     {
         this.player = player;
-        this.text = text;
-     
+        this.GameOverText = GameOverText;
     }
     public void PrintGameOver()
     {
+        GameOverText.GetComponent<Text>().text = "GameOver...";
+        GameOverText.SetActive(true);
 
-        text.GetComponent<Text>().text = "GameOver...";
-            text.SetActive(true);
-
-            player.GetComponent<UnityChanControlScriptWithRgidBody>().enabled = false;
-            player.GetComponent<Animator>().enabled = false;
-
+        player.GetComponent<UnityChanControlScriptWithRgidBody>().enabled = false;
+        player.GetComponent<Animator>().enabled = false;
     }
  
- 
-
     public void Restart()
-    {
-        
+    {   
         Scene loadScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(loadScene.name);
-
     }
-
-    public bool IsGameOver()
-    {
-        isGameOver = true;
-        return isGameOver;
-        
-    }
-
 }

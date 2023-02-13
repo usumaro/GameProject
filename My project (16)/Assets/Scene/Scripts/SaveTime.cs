@@ -6,16 +6,13 @@ using UnityEngine.Networking;
 
 public class SaveTime : MonoBehaviour
 {
-    
     public InputField inputField;
     public GameObject PlaceHolder;
     public GameObject Time;
 
     public void Button_Push()
     {
-  
         PlaceHolder = GameObject.Find("Placeholder");
-        
         Time = GameObject.Find("Time");
 
         inputField = GameObject.Find("InputName").GetComponent<InputField>();
@@ -27,7 +24,6 @@ public class SaveTime : MonoBehaviour
       
     }
 
-
     private IEnumerator Access()
     {
         Dictionary<string, string> dic = new Dictionary<string, string>();
@@ -35,7 +31,6 @@ public class SaveTime : MonoBehaviour
         dic.Add("name1", inputField.GetComponentInChildren<InputField>().text);
 
         StartCoroutine(Post("http://localhost/dbaccess/savetime.php", dic));
-        
         StartCoroutine(Post("http://localhost/dbaccess/bestpositioncopy.php", dic));
 
         yield return 0;

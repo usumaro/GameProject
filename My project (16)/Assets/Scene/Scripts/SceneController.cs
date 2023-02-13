@@ -18,19 +18,13 @@ public class SceneController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-
             Invoke("Call", 1.5f);
             audioSource.PlayOneShot(sound1);
         }
-
-       
-    }
+     }
 
     void Call()
     {
         SceneManager.LoadScene("Game");
-
-
     }
-
 }

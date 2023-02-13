@@ -3,14 +3,10 @@ using System.Collections;
 
 public class PauseScript : MonoBehaviour
 {
-	
-
 	[SerializeField]
 	//　ポーズした時に表示するUIのプレハブ
 	private GameObject pauseUIPrefab;
-
 	private GameObject pauseUIInstance;
-
 
 	[SerializeField]
 
@@ -20,7 +16,6 @@ public class PauseScript : MonoBehaviour
 
 	void Start()
 	{
-
 		Time.timeScale = 1f;
 	}
 	void Update()
@@ -31,7 +26,6 @@ public class PauseScript : MonoBehaviour
 			{
 				pauseUIInstance = (GameObject) Instantiate (pauseUIPrefab) ;
 				pauseUIInstance.transform.SetParent(canvas.transform,false);
-
 
 				Time.timeScale = 0f;
 			}

@@ -5,35 +5,31 @@ using UnityEngine;
 public class EnemyHitContoroller : MonoBehaviour
 {
     public GameObject player;
-
-    public GameObject text;
-
+    public GameObject GameOverText;
     public Coll col;
-
     private RestartManager restart;
-
     public GoalManager goal;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        restart = new RestartManager(player, text);  
+        restart = new RestartManager(player, GameOverText);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (col.Go == true && Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Return) && col.isGameOver == true)
         {
+            Debug.Log("Restart”»’è");
             restart.Restart();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == player.name && goal.isGoal == false)
+        if (other.gameObject.name == player.name)
         {
-            restart.IsGameOver();
+            Debug.Log("GameOver”»’è");
             restart.PrintGameOver();
         }
     }

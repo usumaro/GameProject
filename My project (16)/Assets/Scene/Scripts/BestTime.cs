@@ -10,16 +10,13 @@ public class BestTime : MonoBehaviour
    
    void Start()
     {
-
         BestTimeText = GameObject.Find("BestTimeText");
         StartCoroutine("Access");
-    
     }
 
     private IEnumerator Access()
     {
         StartCoroutine(Post("http://localhost/dbaccess/loadbesttime.php"));    
-
         yield return 0;
     }
 
@@ -30,11 +27,8 @@ public class BestTime : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))
         {
             yield return www.SendWebRequest();
-
             string[] data = www.downloadHandler.text.Split(',');
-
             BestTimeText.GetComponent<Text>().text ="BestTime :"+ www.downloadHandler.text + "•b";
-        
         }    
     }
 }

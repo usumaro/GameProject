@@ -26,7 +26,7 @@ public class SavePosition : MonoBehaviour
     {
 
         timeleft += Time.deltaTime;
-        if (Goal.isGoal == false && col.Go == false)
+        if (Goal.isGoal == false && col.isGameOver == false)
         { //ゴール&GameOverしてないときだけ記録
 
             if (timeleft >= 0.5)
@@ -39,16 +39,12 @@ public class SavePosition : MonoBehaviour
                 zp = posi.z.ToString();
 
                 StartCoroutine("Access");
-
-                Debug.Log(xp);
-                Debug.Log(yp);
-                Debug.Log(zp);
             }
         }
     }
 
     private IEnumerator Access()
-    {
+    {　　//座標ｘｙｚをＤＢに送信
         Dictionary<string, string> dic = new Dictionary<string, string>();
         dic.Add("posx", xp);
         dic.Add("posy", yp);
@@ -60,9 +56,7 @@ public class SavePosition : MonoBehaviour
     }
 
     private IEnumerator Reset()
-    {
-        Debug.Log("座標リセット");
-
+    {   //開始時に座標データを初期化
         StartCoroutine(Post2("http://localhost/dbaccess/resetpositiontable.php"));
 
         yield return 0;

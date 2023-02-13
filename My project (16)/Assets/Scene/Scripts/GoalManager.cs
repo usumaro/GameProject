@@ -7,7 +7,13 @@ using UnityEngine.SceneManagement;
 public class GoalManager : MonoBehaviour
 {
     public GameObject player;
-    public GameObject text1;
+    public GameObject GameOverText;
+    public GameObject GoalText;
+    public GameObject TimeButton;
+    public GameObject InputName;
+    public GameObject TopButton;
+
+    private RestartManager restart;
 
     public bool isGoal = false;
 
@@ -17,39 +23,32 @@ public class GoalManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        restart = new RestartManager(player, GameOverText);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isGoal == true && Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Return) && isGoal == true)
         {
             Time.timeScale = 1f;
-            Restart();
-        } 
+            restart.Restart();
+            Debug.Log("Restart判定");
+        }
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.name == player.name)
         {
-
-            text1.GetComponent<Text>().text = "Goal!!\nSpaceキーでリスタート";
-
-            text1.SetActive(true);
-
+            GoalText.GetComponent<Text>().text = "Goal!!\nSpaceキーでリスタート";
+            GoalText.SetActive(true);
             isGoal = true;
-
             seAudioSource.Play();
-        }    
-    }
 
-
-    private void Restart()
-    {
-        Scene loadScene = SceneManager.GetActiveScene();
-
-        SceneManager.LoadScene(loadScene.name);
+            TimeButton.SetActive(true);
+            InputName.SetActive(true);
+            TopButton.SetActive(true);
+        }  
     }
 }
