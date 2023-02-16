@@ -28,20 +28,19 @@ public class GhostButton : MonoBehaviour
 
     public void Update()
     {
-        dt += Time.deltaTime;
         if (dt > 0.5) //0.5ïbÇ≤Ç∆Ç…ç¿ïWÇ…îΩâf
         {
-            var posi = positionData[count];
+                var posi = positionData[count];
 
-            Transform myTransform = Ghost.transform;
-            Vector3 pos = myTransform.position;
+                Transform myTransform = Ghost.transform;
+                Vector3 pos = myTransform.position;
 
-            pos.x = float.Parse(posi.x);
-            pos.z = float.Parse(posi.z);
-            myTransform.position = pos;
+                pos.x = float.Parse(posi.x);
+                pos.z = float.Parse(posi.z);
+                myTransform.position = pos;
 
-            dt = 0.0f;
-            count++;
+                dt = 0.0f;
+                count++;
         }
     }
 
