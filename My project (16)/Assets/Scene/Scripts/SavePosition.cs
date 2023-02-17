@@ -15,11 +15,11 @@ public class SavePosition : MonoBehaviour
     string zp;
 
     private float timeleft = 0;
-
+   
     public void Start()
     {
-        Player = GameObject.Find("player");
         StartCoroutine("Reset");
+        Debug.Log("座標リセット");
     }
 
     public void Update()

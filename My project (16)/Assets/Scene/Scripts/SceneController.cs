@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public GameObject TopButton;
     public AudioClip sound1;
     AudioSource audioSource;
     // Start is called before the first frame update
@@ -18,13 +20,25 @@ public class SceneController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Invoke("Call", 1.5f);
+            Invoke("Game", 1.5f);
             audioSource.PlayOneShot(sound1);
         }
      }
 
-    void Call()
+    public void ButtonPush()
+    {
+        Debug.Log("タイトルへ変遷中…");
+
+        Invoke("Top", 1.0f);
+    }
+
+    void Game()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    void Top()
+    {
+        SceneManager.LoadScene("Top");
     }
 }

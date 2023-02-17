@@ -28,6 +28,7 @@ public class GhostButton : MonoBehaviour
 
     public void Update()
     {
+        dt += Time.deltaTime;
         if (dt > 0.5) //0.5ïbÇ≤Ç∆Ç…ç¿ïWÇ…îΩâf
         {
                 var posi = positionData[count];
