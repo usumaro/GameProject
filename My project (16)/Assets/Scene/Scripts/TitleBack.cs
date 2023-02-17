@@ -8,7 +8,7 @@ public class TitleBack : MonoBehaviour
 {
     public GameObject TopButton;
    
-    public void Button_Push()
+    public void OnClick()
     {
         Debug.Log("タイトルへ変遷中…");
         

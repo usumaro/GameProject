@@ -23,8 +23,7 @@ public class SavePosition : MonoBehaviour
     }
 
     public void Update()
-    {
-
+    { 
         timeleft += Time.deltaTime;
         if (Goal.isGoal == false && col.isGameOver == false)
         { //ÉSÅ[Éã&GameOverÇµÇƒÇ»Ç¢Ç∆Ç´ÇæÇØãLò^
@@ -37,7 +36,8 @@ public class SavePosition : MonoBehaviour
                 xp = posi.x.ToString();
                 yp = posi.y.ToString();
                 zp = posi.z.ToString();
-
+                Debug.Log(xp);
+                Debug.Log(zp);
                 StartCoroutine("Access");
             }
         }
@@ -74,7 +74,6 @@ public class SavePosition : MonoBehaviour
         {
             yield return www.SendWebRequest();
         }
-
     }
 
     private IEnumerator Post2(string url)

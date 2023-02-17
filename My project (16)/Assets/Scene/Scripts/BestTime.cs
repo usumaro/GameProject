@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 public class BestTime : MonoBehaviour
 {
     public GameObject BestTimeText;
+    public float btt;
    
    void Start()
     {
@@ -27,7 +28,7 @@ public class BestTime : MonoBehaviour
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))
         {
             yield return www.SendWebRequest();
-            string[] data = www.downloadHandler.text.Split(',');
+            btt = float.Parse(www.downloadHandler.text);
             BestTimeText.GetComponent<Text>().text ="BestTime :"+ www.downloadHandler.text + "•b";
         }    
     }
