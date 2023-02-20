@@ -81,8 +81,3 @@ public class SavePosition : MonoBehaviour
         yield return 0;
     }
 }
-
-
-    
-
- 

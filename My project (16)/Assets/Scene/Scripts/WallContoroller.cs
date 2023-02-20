@@ -8,7 +8,7 @@ using UnityChan;
 public class WallContoroller : MonoBehaviour
 {
     public float speed = 0.02f;//áŠQ•¨‚ÌƒXƒs[ƒh
-    public float max_x = 10.0f;//áŠQ•¨‚ÌŒÀŠE’l
+    public float max_x = 10.0f;//áŠQ•¨‚Ì‚˜ŒÀŠE’l
     public GameObject player;
     public GameObject GameOverText;
     private RestartManager restart;
