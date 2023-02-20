@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    public GameObject TopButton;
     public AudioClip sound1;
     AudioSource audioSource;
     
@@ -24,20 +23,8 @@ public class SceneController : MonoBehaviour
         }
      }
 
-    public void ButtonPush()//ボタンを押したらTopへ戻る
-    {
-        Debug.Log("タイトルへ変遷中…");
-
-        Invoke("Top", 1.0f);
-    }
-
     void Game()
     {
         SceneManager.LoadScene("Game");
-    }
-
-    void Top()
-    {
-        SceneManager.LoadScene("Top");
     }
 }
