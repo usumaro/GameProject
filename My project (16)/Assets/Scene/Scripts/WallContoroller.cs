@@ -7,8 +7,8 @@ using UnityChan;
 
 public class WallContoroller : MonoBehaviour
 {
-    public float speed = 0.02f;
-    public float max_x = 10.0f;
+    public float speed = 0.02f;//障害物のスピード
+    public float max_x = 10.0f;//障害物の限界値
     public GameObject player;
     public GameObject GameOverText;
     private RestartManager restart;
@@ -19,8 +19,7 @@ public class WallContoroller : MonoBehaviour
         restart = new RestartManager(player, GameOverText);
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update()//障害物を往復させる
     {
         this.gameObject.transform.Translate(speed, 0, 0);
         
@@ -29,7 +28,7 @@ public class WallContoroller : MonoBehaviour
            speed *= -1;    
         }
 
-        if (Input.GetKey(KeyCode.Return) && col.isGameOver == true)
+        if (Input.GetKey(KeyCode.Return) && col.isGameOver == true)//ゲームオーバー時ENTERでリスタート
         {
             restart.Restart();
             Debug.Log("Restart判定");
@@ -38,7 +37,7 @@ public class WallContoroller : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.name == player.name)
+        if (other.gameObject.name == player.name)//障害物に触れたらゲームオーバー
         {
             restart.PrintGameOver();
             Debug.Log("GameOver判定");

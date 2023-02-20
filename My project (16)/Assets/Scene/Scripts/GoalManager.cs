@@ -20,16 +20,14 @@ public class GoalManager : MonoBehaviour
     [SerializeField]
     AudioSource seAudioSource;
 
-    // Start is called before the first frame update
     void Start()
     {
         restart = new RestartManager(player, GameOverText);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Return) && isGoal == true)
+        if (Input.GetKey(KeyCode.Return) && isGoal == true)//ゴール且つENTERでリスタート
         {
             Time.timeScale = 1f;
             restart.Restart();
@@ -37,11 +35,11 @@ public class GoalManager : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)//ゴールしたらサウンドとテキスト・ボタンを表示
     {
         if (other.name == player.name)
         {
-            GoalText.GetComponent<Text>().text = "Goal!!\nSpaceキーでリスタート";
+            GoalText.GetComponent<Text>().text = "Goal!!\nENTERキーでリスタート";
             GoalText.SetActive(true);
             isGoal = true;
             seAudioSource.Play();

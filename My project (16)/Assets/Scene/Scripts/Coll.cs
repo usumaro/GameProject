@@ -8,10 +8,9 @@ public class Coll : MonoBehaviour
     public GameObject GameOverText;
     public bool isGameOver = false;
 
-    // Update is called once per frame
     void Update()
     {
-        if (GameOverText.activeSelf == true)
+        if (GameOverText.activeSelf == true)//ゲームオーバーの判定用
         {
             isGameOver = true;
         }

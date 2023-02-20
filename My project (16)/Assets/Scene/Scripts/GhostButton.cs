@@ -44,7 +44,7 @@ public class GhostButton : MonoBehaviour
                 dt = 0.0f;
                 count++;
 
-            if (count == positionData.Count -1)
+            if (count == positionData.Count -1)//座標を読み終わったら読み込みを止める
             {
                 stop = 0;
                 Debug.Log("ゴーストがゴールしました");

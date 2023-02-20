@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
     
     void Update()
     {
-        if (col.isGameOver == true)
+        if (col.isGameOver == true)//ゲームオーバー時にサウンドを再生
         {
             if(!isCount)
             GetComponent<AudioSource>().Play();

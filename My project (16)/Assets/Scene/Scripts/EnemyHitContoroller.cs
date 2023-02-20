@@ -10,7 +10,6 @@ public class EnemyHitContoroller : MonoBehaviour
     private RestartManager restart;
     public GoalManager goal;
 
-    // Start is called before the first frame update
     private void Start()
     {
         restart = new RestartManager(player, GameOverText);
@@ -18,14 +17,14 @@ public class EnemyHitContoroller : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Return) && col.isGameOver == true)
+        if (Input.GetKey(KeyCode.Return) && col.isGameOver == true)//ゲームオーバー且つENTERでリスタート
         {
             Debug.Log("Restart判定");
             restart.Restart();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)//ENEMYに当たったらゲームオーバー
     {
         if (other.gameObject.name == player.name)
         {

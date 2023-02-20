@@ -7,10 +7,9 @@ public class BGMManager : MonoBehaviour
     public Coll col;
     public AudioSource audioSource;
 
-    // Update is called once per frame
     void Update()
     {
-        if (col.isGameOver == true)
+        if (col.isGameOver == true)//ゲームオーバーでBGM停止
         {
             audioSource.Stop();
         }

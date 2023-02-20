@@ -9,22 +9,20 @@ public class DropManager : MonoBehaviour
     private RestartManager restart;
     public Coll col;
 
-    // Start is called before the first frame update
     void Start()
     {
         restart = new RestartManager(player, GameOverText);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.y < -10)
+        if (player.transform.position.y < -10) //-10まで落ちたらゲームオーバー
         {
             restart.PrintGameOver();
             Debug.Log("GameOver判定");
         }
 
-        if (Input.GetKey(KeyCode.Return) && col.isGameOver == true)
+        if (Input.GetKey(KeyCode.Return) && col.isGameOver == true)//ゲームオーバー且つENTERでリスタート
         {
             restart.Restart();
             Debug.Log("Restart判定");

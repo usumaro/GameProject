@@ -15,7 +15,7 @@ public class RestartManager : MonoBehaviour
         this.player = player;
         this.GameOverText = GameOverText;
     }
-    public void PrintGameOver()
+    public void PrintGameOver()//ゲームオーバーを表示する
     {
         GameOverText.GetComponent<Text>().text = "GameOver...";
         GameOverText.SetActive(true);
@@ -24,7 +24,7 @@ public class RestartManager : MonoBehaviour
         player.GetComponent<Animator>().enabled = false;
     }
  
-    public void Restart()
+    public void Restart()//ゲームをリスタートする
     {   
         Scene loadScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(loadScene.name);

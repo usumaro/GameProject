@@ -9,14 +9,13 @@ public class SceneController : MonoBehaviour
     public GameObject TopButton;
     public AudioClip sound1;
     AudioSource audioSource;
-    // Start is called before the first frame update
+    
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update()//Topでマウスクリックでゲームへ
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -25,7 +24,7 @@ public class SceneController : MonoBehaviour
         }
      }
 
-    public void ButtonPush()
+    public void ButtonPush()//ボタンを押したらTopへ戻る
     {
         Debug.Log("タイトルへ変遷中…");
 

@@ -24,23 +24,23 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Return) && goal.isGoal == true)
+        if (Input.GetKey(KeyCode.Return) && goal.isGoal == true)//ゴールしてENTERを押したらリスタート
         {
             restart.Restart();
             Debug.Log("Restart判定");
         }
 
-        if (limit < 0)
+        if (limit < 0)//０秒になったらゲームオーバー
         {
             restart.PrintGameOver();
             return;
         }
-        if (goal.isGoal == true)
+        if (goal.isGoal == true)//ゴールしていたらカウントダウンをストップ
         {
             Time.timeScale = 0f;
         }
       
         limit -= Time.deltaTime;
-        timeText.text =  limit.ToString("f1") + "秒";
+        timeText.text =  limit.ToString("f1") + "秒";//カウントダウン３０秒
     }
 }
