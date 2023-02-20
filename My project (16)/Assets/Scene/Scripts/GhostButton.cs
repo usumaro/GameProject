@@ -16,6 +16,7 @@ public class GhostButton : MonoBehaviour
     float dt = 0;
     private bool on_off_button_bool;//ゴーストオンオフ
     int count = 0;//カウンター
+    int stop = 1;//deltatimeストップ用
 
     public void Start()
     {
@@ -28,7 +29,7 @@ public class GhostButton : MonoBehaviour
 
     public void Update()
     {
-        dt += Time.deltaTime;
+        dt += Time.deltaTime * stop;
         if (dt > 0.5) //0.5秒ごとに座標に反映
         {
                 var posi = positionData[count];
@@ -42,6 +43,12 @@ public class GhostButton : MonoBehaviour
 
                 dt = 0.0f;
                 count++;
+
+            if (count == positionData.Count -1)
+            {
+                stop = 0;
+                Debug.Log("ゴーストがゴールしました");
+            }
         }
     }
 
