@@ -10315,51 +10315,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseUIPrefab: {fileID: 4523254437597925640, guid: 4d49d8e6ff7213745b0423cc3a841024, type: 3}
   canvas: {fileID: 687452458}
---- !u!1 &967961690
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 967961692}
-  - component: {fileID: 967961693}
-  m_Layer: 0
-  m_Name: SceneController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &967961692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967961690}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.216442, y: -2.1110382, z: -5.825453}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &967961693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967961690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b64d7e76b855b414d8034a1337eba3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TopButton: {fileID: 1017274622}
 --- !u!1 &992600872
 GameObject:
   m_ObjectHideFlags: 0
@@ -10515,7 +10470,6 @@ GameObject:
   - component: {fileID: 1017274627}
   - component: {fileID: 1017274626}
   - component: {fileID: 1017274625}
-  - component: {fileID: 1017274624}
   - component: {fileID: 1017274628}
   m_Layer: 5
   m_Name: TopButton
@@ -10545,18 +10499,6 @@ RectTransform:
   m_AnchoredPosition: {x: 790, y: -460}
   m_SizeDelta: {x: 270, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1017274624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1017274622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1691eb0218154c04cac71f85ac3750f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1017274625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10602,8 +10544,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1017274628}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: ButtonPush
+        m_TargetAssemblyTypeName: SceneRestart, Assembly-CSharp
+        m_MethodName: Button_Push
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10660,10 +10602,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1017274622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4e837b4cfeadc488577d755c224b42, type: 3}
+  m_Script: {fileID: 11500000, guid: b64d7e76b855b414d8034a1337eba3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound1: {fileID: 8300000, guid: d63535103389bb24f8f297fbe85c803e, type: 3}
+  TopButton: {fileID: 0}
 --- !u!1 &1421065048
 GameObject:
   m_ObjectHideFlags: 0
