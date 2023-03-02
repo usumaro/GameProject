@@ -6,6 +6,7 @@ public class Coll : MonoBehaviour
 {
     public GameObject player;
     public GameObject GameOverText;
+    public GameObject TopButton;
     public bool isGameOver = false;
 
     void Update()
@@ -14,7 +15,10 @@ public class Coll : MonoBehaviour
         {
             isGameOver = true;
         }
+
+        if (isGameOver == true)
+        {
+            TopButton.SetActive(true);
+        }
     }
 }
-
-    

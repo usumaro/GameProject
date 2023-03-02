@@ -7,15 +7,17 @@ using UnityEngine.SceneManagement;
 public class SceneRestart : MonoBehaviour
 {
     public GameObject TopButton;
-   
-    public void Button_Push()
-    {
-       Invoke("Top", 1.5f);
-       Debug.Log("TOPメニューに戻ります");
+
+    void Button_Push()
+    {  
+        StartCoroutine(DelayCoroutine()); // コルーチンの起動
+        Debug.Log("TOPへ戻ります");
     }
 
-    private void Top()
+    private IEnumerator DelayCoroutine()
     {
+        yield return new WaitForSecondsRealtime(1); // 1秒間待つ
         SceneManager.LoadScene("Top");
+        Debug.Log("TOPメソッド");
     }
 }

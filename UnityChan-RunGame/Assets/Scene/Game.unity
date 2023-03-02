@@ -9453,6 +9453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 255694317}
   GameOverText: {fileID: 1421065048}
+  TopButton: {fileID: 1017274622}
   isGameOver: 0
 --- !u!1 &559963577
 GameObject:
@@ -9756,6 +9757,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 267621890}
+  goal: {fileID: 256397722}
+  sound1: {fileID: 8300000, guid: fd4b94042d60eb3408a30f88371f3c27, type: 3}
+  sound2: {fileID: 8300000, guid: babd059a848325a45a8e1466cb821b67, type: 3}
+  sound3: {fileID: 8300000, guid: f61fdac1483f1664f897f70f57864c88, type: 3}
+  sound4: {fileID: 8300000, guid: 2f7eab2d115bc1742a6bf4261b5f5bcd, type: 3}
+  sound5: {fileID: 8300000, guid: 174a9ba51a5173547b4238c2858c5ff9, type: 3}
+  sound6: {fileID: 8300000, guid: fa0dc2a8d2938484db5b25a8dd916d65, type: 3}
 --- !u!1 &687452458
 GameObject:
   m_ObjectHideFlags: 0
@@ -10605,7 +10613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64d7e76b855b414d8034a1337eba3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TopButton: {fileID: 0}
+  TopButton: {fileID: 1017274622}
 --- !u!1 &1421065048
 GameObject:
   m_ObjectHideFlags: 0
