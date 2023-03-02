@@ -78,6 +78,10 @@ public class SavePosition : MonoBehaviour
 
     private IEnumerator Post2(string url)
     {
-        yield return 0;
+        WWWForm form = new WWWForm();
+        using (UnityWebRequest www = UnityWebRequest.Post(url, form))
+        {
+            yield return www.SendWebRequest();
+        }
     }
 }
