@@ -429,6 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound1: {fileID: 8300000, guid: d63535103389bb24f8f297fbe85c803e, type: 3}
+  isCount: 0
 --- !u!82 &764972450
 AudioSource:
   m_ObjectHideFlags: 0
@@ -698,7 +699,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Click Game Start
+  m_Text: Push Enter Game Start
 --- !u!222 &1492110136
 CanvasRenderer:
   m_ObjectHideFlags: 0
