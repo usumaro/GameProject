@@ -10,7 +10,7 @@ public class TimeManager : MonoBehaviour
     public GameObject player;
     public GameObject GameOverText;
     public GoalManager goal;
-   
+  
     public Coll col;
     private RestartManager restart;
 
