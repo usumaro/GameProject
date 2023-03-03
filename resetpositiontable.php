@@ -3,7 +3,7 @@
 require_once('mysql_connect.php');
   $db = connectDB();
 
-  $sql = "DELETE FROM position_table ";
+$sql = "DELETE FROM position_table ";
 
   
   mysqli_query($db, $sql);

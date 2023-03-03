@@ -7,23 +7,34 @@ using UnityEngine.Networking;
 
 public class ScorePage : MonoBehaviour
 {
-  
-    List<Position> positionData = null;
+    public GameObject ScoreButton;
+    public GameObject ScoreText;
+    string timedata;
+    List<Score> timeScore;
 
-    public void Start()
+    public void Button_Push()
     {
-        StartCoroutine("Access");//DBの座標を取得
+        StartCoroutine("Access");//DBのタイムを取得
+
+        foreach (Score ts in timeScore)
+        {
+            // 読み込んだデータの確認
+            Debug.Log($"id={ts.time_id} name={ts.name} time={ts.time} date={ts.time_date}");
+           timedata = timedata + ts.name + ts.time + ts.time_date +"\n";
+
+        }
+         ScoreText.GetComponent<Text>().text = timedata;
     }
 
-    public class Position //配列のリスト
+    public class Score //配列のリスト
     {
-        public string id { get; set; }
+        public string time_id { get; set; }
         public string name { get; set; }
         public string time { get; set; }
         public string time_date { get; set; }
     }
 
-    private IEnumerator Access()　//ゴースト座標の呼び出し
+    private IEnumerator Access()　//タイム一覧の呼び出し
     {
         Debug.Log("Access");
         StartCoroutine(Post("http://localhost/dbaccess/scorepage.php"));
@@ -47,7 +58,8 @@ public class ScorePage : MonoBehaviour
             else if (www.isDone)　//エラーがなければリストでデータを取得
             {
                 string data = www.downloadHandler.text;
-                this.positionData = JsonConvert.DeserializeObject<List<Position>>(data);
+                this.timeScore = JsonConvert.DeserializeObject<List<Score>>(data);
+                Debug.Log(data);
             }
         }
     }

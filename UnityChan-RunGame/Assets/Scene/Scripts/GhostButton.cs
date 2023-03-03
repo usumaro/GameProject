@@ -11,8 +11,6 @@ public class GhostButton : MonoBehaviour
     private GameObject GhostButtonText;
     List<Position> positionData = null;
 
-    float px;
-    float pz;
     float dt = 0;
     private bool on_off_button_bool;//ゴーストオンオフ
     int count = 0;//カウンター
