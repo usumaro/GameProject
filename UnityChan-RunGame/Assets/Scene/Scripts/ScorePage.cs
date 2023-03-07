@@ -32,17 +32,18 @@ public class ScorePage : MonoBehaviour
        
         ScorePanel.SetActive(true);//スコアの表示
 
-        foreach (Score ts in timeScore)
-        {
-            // 読み込んだデータの確認
-            Debug.Log($"id={ts.time_id} name={ts.name} time={ts.time} date={ts.time_date}");
-            namedata = namedata + ts.name + "\n";
-            timedata = timedata + ts.time + "\n";
-            datedata = datedata + ts.time_date + "\n";
-        }
-       
         if (OneTime == true)//一度だけ表示
         {
+            foreach (Score ts in timeScore)
+            {
+                // 読み込んだデータの確認
+               Debug.Log($"id={ts.time_id} name={ts.name} time={ts.time} date={ts.time_date}");
+                namedata = namedata + ts.name + "\n";
+                timedata = timedata + ts.time + "\n";
+                datedata = datedata + ts.time_date + "\n";
+            }
+       
+       
             NameText.GetComponent<Text>().text = "NAME\n" + namedata;
             ScoreText.GetComponent<Text>().text = "SCORE\n" + timedata;
             DateText.GetComponent<Text>().text = "DATE\n" + datedata;
