@@ -12,6 +12,7 @@ public class GoalManager : MonoBehaviour
     public GameObject TimeButton;
     public GameObject InputName;
     public GameObject TopButton;
+    public GameObject ScoreButton;
 
     private RestartManager restart;
 
@@ -47,6 +48,7 @@ public class GoalManager : MonoBehaviour
             TimeButton.SetActive(true);
             InputName.SetActive(true);
             TopButton.SetActive(true);
+            ScoreButton.SetActive(true);
         }  
     }
 }

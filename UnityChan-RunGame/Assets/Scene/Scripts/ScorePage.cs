@@ -8,22 +8,31 @@ using UnityEngine.Networking;
 public class ScorePage : MonoBehaviour
 {
     public GameObject ScoreButton;
+    public GameObject NameText;
     public GameObject ScoreText;
+    public GameObject DateText;
+    public GameObject ScorePanel;
+    string namedata;
     string timedata;
-    List<Score> timeScore;
+    string datedata;
+    List<Score> timeScore = null;
 
     public void Button_Push()
     {
+        ScorePanel.SetActive(true);//スコアの表示
         StartCoroutine("Access");//DBのタイムを取得
 
         foreach (Score ts in timeScore)
         {
             // 読み込んだデータの確認
             Debug.Log($"id={ts.time_id} name={ts.name} time={ts.time} date={ts.time_date}");
-           timedata = timedata + ts.name + ts.time + ts.time_date +"\n";
-
+            namedata = namedata + ts.name + "\n";
+            timedata = timedata + ts.time + "\n";
+            datedata = datedata + ts.time_date + "\n";
         }
-         ScoreText.GetComponent<Text>().text = timedata;
+         NameText.GetComponent<Text>().text = "NAME\n" + namedata;
+         ScoreText.GetComponent<Text>().text = "SCORE\n" + timedata;
+         DateText.GetComponent<Text>().text = "DATE\n" + datedata;
     }
 
     public class Score //配列のリスト
