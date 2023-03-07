@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 
 public class ScorePage : MonoBehaviour
 {
+    public GoalManager gm;
     public GameObject ScoreButton;
     public GameObject NameText;
     public GameObject ScoreText;
@@ -16,11 +17,20 @@ public class ScorePage : MonoBehaviour
     string timedata;
     string datedata;
     List<Score> timeScore = null;
+    private bool OneTime = true;//一度だけ実行用
+
+    public void Update()
+    {
+        if (gm.isGoal == true)
+        {
+            StartCoroutine("Access");//DBのタイムを取得
+        }
+    }
 
     public void Button_Push()
     {
+       
         ScorePanel.SetActive(true);//スコアの表示
-        StartCoroutine("Access");//DBのタイムを取得
 
         foreach (Score ts in timeScore)
         {
@@ -30,9 +40,14 @@ public class ScorePage : MonoBehaviour
             timedata = timedata + ts.time + "\n";
             datedata = datedata + ts.time_date + "\n";
         }
-         NameText.GetComponent<Text>().text = "NAME\n" + namedata;
-         ScoreText.GetComponent<Text>().text = "SCORE\n" + timedata;
-         DateText.GetComponent<Text>().text = "DATE\n" + datedata;
+       
+        if (OneTime == true)//一度だけ表示
+        {
+            NameText.GetComponent<Text>().text = "NAME\n" + namedata;
+            ScoreText.GetComponent<Text>().text = "SCORE\n" + timedata;
+            DateText.GetComponent<Text>().text = "DATE\n" + datedata;
+            OneTime = false; 
+        }
     }
 
     public class Score //配列のリスト
