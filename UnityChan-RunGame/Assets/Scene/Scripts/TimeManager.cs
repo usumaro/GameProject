@@ -14,14 +14,12 @@ public class TimeManager : MonoBehaviour
     public Coll col;
     private RestartManager restart;
 
-    // Start is called before the first frame update
     void Start()
     {
         timeText.text = limit + "秒";
         restart = new RestartManager(player, GameOverText);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.Return) && goal.isGoal == true)//ゴールしてENTERを押したらリスタート

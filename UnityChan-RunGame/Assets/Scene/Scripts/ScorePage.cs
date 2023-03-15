@@ -43,7 +43,6 @@ public class ScorePage : MonoBehaviour
                 datedata = datedata + ts.time_date + "\n";
             }
        
-       
             NameText.GetComponent<Text>().text = "NAME\n" + namedata;
             ScoreText.GetComponent<Text>().text = "SCORE\n" + timedata;
             DateText.GetComponent<Text>().text = "DATE\n" + datedata;
